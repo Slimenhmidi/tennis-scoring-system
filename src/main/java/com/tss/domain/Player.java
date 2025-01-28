@@ -1,22 +1,13 @@
 package com.tss.domain;
 
-/**
- * Internal implementation of the player interface
- */
-class Player implements IPlayer {
-    private final String name;
-    private final int score;
+public record Player(String name, int score){
 
-    Player(String name, int score) {
-        this.name = name;
-        this.score = score;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public String getName() {
-        return name;
+    /**
+     * Factory method that creates a new player having the given name with a score 0
+     * @param name the player name
+     * @return a new player having the given name with a score 0
+     */
+    public static Player newPlayer(String name) {
+        return new Player(name, 0);
     }
 }
